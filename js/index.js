@@ -10,8 +10,8 @@ const sizes = document.querySelector(".sizes");
 dark.addEventListener("input", handleDarkColor);
 light.addEventListener("input", handleLightColor);
 qrText.addEventListener("input", handleQRText);
-sizes.addEventListener("input", handleSizes);
-shareBtn.addEventListener("input", handleShare);
+sizes.addEventListener("change", handleSizes);
+shareBtn.addEventListener("click", handleShare);
 
 const defaultUrl = "https://github.com/ahmedabdeien";
 let colorLight = "#fff",
@@ -61,7 +61,7 @@ async function handleShare(){
         }catch(error){
             alert("Your browser does not support Share.");
         }
-    },100);
+    }, 100);
 }
 function handleSizes(e){
     size = e.target.value;
@@ -77,7 +77,7 @@ function resolveDataUrl(){
             }
             const canvas = document.createElement("canvas");
             resolve(canvas.toDataURL());
-        },50);
+        }, 50);
     });
 }
 generateQRCode();
